@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="text-center" style="color:#6c6cda;">Github User Info</h1>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <br>
+        <br>
+        <br>
+        <hr>
+        <a href="{% url 'SearchView' %}">Search user</a>
+        
+        <br>
+        <br>
+        <br>
+        <hr>
+        <a href="https://github.com" target="_blank">GitHub account</a>
+    </div>
+    <div class="col-md-8">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="col-md-2">
+    </div>
+</body>
+
+</html>
