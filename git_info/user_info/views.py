@@ -142,14 +142,20 @@ class CredentialsView(ListView):
         url = 'https://api.github.com/' + url
         response = requests.get(url, auth=auth)
         response = response.json()
+        print(response)
         if 'message' in response:
             print(response['message'])
-            if response['message'] == "Bad credentials":
+            if response['message'] == "Bad credentials" or response['message'] == "Requires authentication":
                 context = {
                     'form': form,
                     'status': '1'
                 }
                 return render(request, self.template_name, context)
+                context = {
+                    'form': form,
+                    'status': '2'
+                }
+            return render(request, self.template_name, context)
 
         GithubCredentials.objects.all().delete()
 
