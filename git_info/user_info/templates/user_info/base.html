@@ -1,41 +1,98 @@
+
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .topbar {
+            height: 150px;
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            /* background-color: #111; */
+            overflow-x: hidden;
+            padding-top: 30px;
+            padding-bottom: 40px;
+
+        }
+
+        .topbar h2 {
+            text-align: center
+        }
+    </style>
+
 </head>
 
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <h1 class="text-center" style="color:#6c6cda;">Github User Info</h1>
-            <br>
-            <br>
-            <br>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="sidenav">
+                    <nav>
+                        <h2>
+                            GitHub Info
+                        </h2>
+                        <br>
+                        <br>
+
+                        <ul>
+                            <li>
+                                <a href="{% url 'SearchView' %}">
+                                    Search user
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com" target="_blank">
+                                    GitHub account
+                                </a>
+                            </li>
+                            < </ul> </nav> </div> </div> <div class="col-md-10">
+                                <div class="col-md-12 topbar">
+                                    <h2>
+                                        GitHub Info
+                                    </h2>
+                                </div>
+
+                                {% block content %}
+
+                                {% endblock content %}
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="col-md-2">
-        <br>
-        <br>
-        <br>
-        <hr>
-        <a href="{% url 'SearchView' %}">Search user</a>
-        
-        <br>
-        <br>
-        <br>
-        <hr>
-        <a href="https://github.com" target="_blank">GitHub account</a>
-    </div>
-    <div class="col-md-8">
-        {% block content %}{% endblock %}
-    </div>
-    <div class="col-md-2">
-    </div>
 </body>
 
 </html>
